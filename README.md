@@ -13,6 +13,15 @@
 
 As the Richmond Chinese Alliance Church AYAYA congregation has decided to implement the new digital attendance-taking system, all members of the church who are also regular attendees will be given an AYAYA pass. AYAYA welcome team members will scan the barcode on each attendee's pass to record their attendance. To avoid repetition, the digital team aims to find a solution that can send out the passes to all members at once. This repository is used for the R&D of the dispenser app and the instructions to set up access to the WhatsApp Business API.
 
+## Task List
+
+- [x] Draft the documentation for setting up the app
+- [] Set up the WhatsApp business account with church office
+- [] Link the WhatsApp business account to a Meta Developer account
+- [] Develop and test codes for uploading AYAYA Passes to WhatsApp media via API route and attach the document to the POST request
+- [] Obtain the members contact CSV template and test it with the app
+- [] Perform tests on sending the AYAYA passes to the contact listed in the CSV file 
+ 
 ## Procedures to set up the WhatsApp business API access
 
 ### 1. Set up a WhatsApp business account with landline number
@@ -40,4 +49,5 @@ WhatsApp has stringent policies on bulk messaging to prevent spam. Using a perso
 3.2 Click on "Add" button to add your WhatsApp business landline number.<br>
 3.3 Once this process is completed, return to the App Dashboard and select your newly added WhatsApp account.<br>
 3.4 Obtain the Phone number ID of your WhatsApp account.<br>
+**Note: To unlock the capability of sending 1000 messages via API, we will need to provide the payment option (unclear if we can use church's credit card)**
 
