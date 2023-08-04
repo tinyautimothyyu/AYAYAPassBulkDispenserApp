@@ -16,12 +16,12 @@ As the Richmond Chinese Alliance Church AYAYA congregation has decided to implem
 ## Task List
 
 - [x] Draft the documentation for setting up the app
-- [] Draft the documentation for running the app
-- [] Set up the WhatsApp business account with church office
-- [] Link the WhatsApp business account to a Meta Developer account
-- [] Develop and test codes for uploading AYAYA Passes to WhatsApp media via API route and attach the document to the POST request
-- [] Obtain the members contact CSV template and test it with the app
-- [] Perform tests on sending the AYAYA passes to the contact listed in the CSV file 
+- [ ] Draft the documentation for running the app
+- [ ] Set up the WhatsApp business account with church office
+- [ ] Link the WhatsApp business account to a Meta Developer account
+- [ ] Develop and test codes for uploading AYAYA Passes to WhatsApp media via API route and attach the document to the POST request
+- [ ] Obtain the members contact CSV template and test it with the app
+- [ ] Perform tests on sending the AYAYA passes to the contact listed in the CSV file 
  
 ## Procedures to set up the WhatsApp business API access
 
