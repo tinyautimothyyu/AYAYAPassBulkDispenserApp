@@ -6,8 +6,10 @@ from helpers import Contacts, Messaging
 # Argument parsing
 parser = argparse.ArgumentParser(description="Send AYAYA pass to contacts from a CSV file.")
 parser.add_argument('csv_path', type=str, help="Path to the CSV file containing contacts.")
+parser.add_argument('passes_path', type=str, help="Path to the directory that contains AYAYA passes")
 args = parser.parse_args()
 csv_path = args.csv_path
+passes_path = args.passes_path
 
 # Load environment variables
 load_dotenv()
@@ -27,7 +29,15 @@ messaging = Messaging(PHONE_NUMBER_ID, ACCESS_TOKEN)
 if not contacts:
     raise ValueError("No contacts found in the CSV file.")
 
-phone_numbers = contacts.get_phone_numbers()
+# get the dataframe from Contacts 
+data = contacts.df
 
-for phone_number in phone_numbers:
-    messaging.send_message(phone_number)
+for index, row in data.iterrows():
+    phone_number = row['Whatsapp #'].replace('-','')
+    filename = row['Filename']+'.jpeg'
+    messaging.send_message(phone_number, passes_path, filename)
+    
+# phone_numbers = contacts.get_phone_numbers()
+
+# for phone_number in phone_numbers:
+#     messaging.send_message(phone_number)
