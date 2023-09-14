@@ -1,3 +1,4 @@
 env/
 passes/
 passes_2/
+.env
