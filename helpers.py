@@ -55,7 +55,7 @@ class Messaging():
     def _get_pass(self, PHONE_NUMBER):
         pass
 
-    def send_message(self, PHONE_NUMBER, FILEPATH, FILENAME):
+    def send_message(self, PHONE_NUMBER, FILEPATH, FILENAME, template=False):
 
         # Path to the file
         FILEPATH += FILENAME
@@ -80,15 +80,40 @@ class Messaging():
         # get media_id
         media_id = ayaya_pass.get_media_id()
 
-        # Define the message content
-        body = { "messaging_product": "whatsapp",
+        if template:
+            body = {
+                "messaging_product": "whatsapp",
                 "recipient_type": "individual", 
                 "to": PHONE_NUMBER, 
-                "type": "image",
-                "image": {
-                    "id": media_id
+                "type": "template",
+                "template": {
+                    "name": "ayaya_pass",
+                    "language": {"code": "en_US"},
+                    "components": [
+                        {
+                            "type": "header",
+                            "parameters": [
+                                {
+                                    "type": "image",
+                                    "image": {
+                                        "id": media_id
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
-                }
+            }
+        else:
+        # Define the message content
+            body = { "messaging_product": "whatsapp",
+                    "recipient_type": "individual", 
+                    "to": PHONE_NUMBER, 
+                    "type": "image",
+                    "image": {
+                        "id": media_id
+                    }
+                    }
 
         # Send the POST request
         response = requests.post(url, headers=headers, data=json.dumps(body))

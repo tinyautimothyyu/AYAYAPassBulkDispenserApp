@@ -5,11 +5,13 @@ from helpers import Contacts, Messaging
 
 # Argument parsing
 parser = argparse.ArgumentParser(description="Send AYAYA pass to contacts from a CSV file.")
-parser.add_argument('csv_path', type=str, help="Path to the CSV file containing contacts.")
-parser.add_argument('passes_path', type=str, help="Path to the directory that contains AYAYA passes")
+parser.add_argument('-f', '--filename', type=str, help="Path to the CSV file containing contacts.")
+parser.add_argument('-d', '--directory', type=str, help="Path to the directory that contains AYAYA passes")
+parser.add_argument('-t', '--template', action='store_true', help="Use WhatsApp template")
 args = parser.parse_args()
-csv_path = args.csv_path
-passes_path = args.passes_path
+csv_path = args.filename
+passes_path = args.directory
+use_template = args.template
 
 # Load environment variables
 load_dotenv()
@@ -33,11 +35,8 @@ if not contacts:
 data = contacts.df
 
 for index, row in data.iterrows():
+    print('Sending AYAYA pass to {} {}'.format(row['Given names'], row['Last name']))
     phone_number = row['Whatsapp #'].replace('-','')
     filename = row['Filename']+'.jpeg'
-    messaging.send_message(phone_number, passes_path, filename)
-    
-# phone_numbers = contacts.get_phone_numbers()
-
-# for phone_number in phone_numbers:
-#     messaging.send_message(phone_number)
+    messaging.send_message(phone_number, passes_path, filename, template=use_template)
+    print("\n")
