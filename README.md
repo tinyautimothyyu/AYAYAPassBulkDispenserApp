@@ -56,12 +56,12 @@ WhatsApp has stringent policies on bulk messaging to prevent spam. Using a perso
 4.1 To verify the WhatsApp Account, Meta may ask you delete your WhatsApp account to disconnect the account and the phone number. Please make sure you have your WhatsApp chats backed up before implementing this action.
 
 ### 5. Send Business-Initiated Conversations using Templates
-A template is essential to for the WhatsApp business account to send messages to contacts that haven't added the business account into their contacts. Below are the steps to create a template:
+A template is essential to for the WhatsApp business account to send messages to contacts that haven't added the business account into their contacts. Below are the steps to create a template:<br>
 5.1 View the templates <a href="https://business.facebook.com/wa/manage/message-templates/?business_id=862046257503790&waba_id=105108609339228">here</a>.<br>
 5.2 Create a new template using the "Create template" button.
 ![Meta Messages Templates](/screenshots/meta_templates.png)
-5.3 Fill up the information about the header, body, footnote of your template and submit for validation.
-5.4 It will take weeks for Meta to process your template and give you the approval to use it.
+5.3 Fill up the information about the header, body, footnote of your template and submit for validation.<br>
+5.4 It will take weeks for Meta to process your template and give you the approval to use it.<br>
 
 ### 6. Send User-Initiated Conversations without Templates
 To send messages to contact without a template, it requires the recipients to add the WhatsApp business account number into their contacts and initiate a conversation first (e.g. Hi). User-initiated conversations are unlimited to the unverified business account.
