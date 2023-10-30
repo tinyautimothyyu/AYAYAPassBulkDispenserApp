@@ -34,9 +34,26 @@ if not contacts:
 # get the dataframe from Contacts 
 data = contacts.df
 
+print(f"Received {data.shape[0]} contacts from the CSV file.\n")
+
+numSuccess = 0
+
+error = {}
+
 for index, row in data.iterrows():
     print('Sending AYAYA pass to {} {}'.format(row['Given names'], row['Last name']))
-    phone_number = row['Whatsapp #'].replace('-','')
-    filename = row['Filename']+'.jpeg'
-    messaging.send_message(phone_number, passes_path, filename, template=use_template)
+    try:
+        phone_number = row['Whatsapp #'].replace('-','')
+        filename = row['Filename']+'.jpeg'
+        messaging.send_message(phone_number, passes_path, filename, template=use_template)
+        numSuccess += 1
+    except Exception as e:
+        print(str(e))
+        error[f"{row['Given names']} {row['Last name']}"] = str(e)
     print("\n")
+
+print('Distribution of AYAYA passes has completed...')
+print(f'Recevied {data.shape[0]} and successfully sent passes to {numSuccess} contacts.')
+if error:
+    for message in error:
+        print(f"{message}: {error[message]}")
