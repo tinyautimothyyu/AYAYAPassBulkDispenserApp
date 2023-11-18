@@ -44,7 +44,7 @@ for index, row in data.iterrows():
     print('Sending AYAYA pass to {} {}'.format(row['Given names'], row['Last name']))
     try:
         phone_number = row['Whatsapp #'].replace('-','')
-        filename = row['Filename']+'.jpeg'
+        filename = row['ID']+'.jpeg'
         messaging.send_message(phone_number, passes_path, filename, template=use_template)
         numSuccess += 1
     except Exception as e:
