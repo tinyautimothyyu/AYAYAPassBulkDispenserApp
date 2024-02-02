@@ -41,7 +41,7 @@ class Media():
 
 class Contacts():
     def __init__(self, path):
-        self.df = pd.read_csv(path, header=1)
+        self.df = pd.read_csv(path, header=0)
 
     def get_phone_numbers(self):
         # Assuming phone numbers are stored in a column named 'phone_number'
