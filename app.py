@@ -44,12 +44,12 @@ for index, row in data.iterrows():
     print('Sending AYAYA pass to {} {}'.format(row['Given name'], row['Last name']))
     try:
         phone_number = row['Whatsapp #'].replace('-','')
-        filename = row['ID']+'.jpeg'
+        filename = row['ID']+'.jpg'
         messaging.send_message(phone_number, passes_path, filename, template=use_template)
         numSuccess += 1
     except Exception as e:
         print(str(e))
-        error[f"{row['Given names']} {row['Last name']}"] = str(e)
+        error[f"{row['Given name']} {row['Last name']}"] = str(e)
     print("\n")
 
 print('Distribution of AYAYA passes has completed...')
