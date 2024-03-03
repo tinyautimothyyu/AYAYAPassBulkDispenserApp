@@ -41,7 +41,7 @@ numSuccess = 0
 error = {}
 
 for index, row in data.iterrows():
-    print('Sending AYAYA pass to {} {}'.format(row['Given names'], row['Last name']))
+    print('Sending AYAYA pass to {} {}'.format(row['Given name'], row['Last name']))
     try:
         phone_number = row['Whatsapp #'].replace('-','')
         filename = row['ID']+'.jpeg'
