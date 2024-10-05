@@ -1,0 +1,13 @@
+/Users/tyu/Desktop/Church/AYAYAPassBulkDispenserApp/venv/lib/python3.9/site-packages/urllib3/__init__.py:34: NotOpenSSLWarning: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Received 1 contacts from the CSV file.
+
+Sending AYAYA pass to Timothy Yu
+{"id":"469487842537462"}
+Media YT7537.1.jpeg uploaded successfully
+{"messaging_product":"whatsapp","contacts":[{"input":"17786807537","wa_id":"17786807537"}],"messages":[{"id":"wamid.HBgLMTc3ODY4MDc1MzcVAgARGBI0RjU1Q0I5NDExNDM5OEFGQjAA","message_status":"accepted"}]}
+Message sent successfully to 17786807537
+
+
+Distribution of AYAYA passes has completed...
+Recevied 1 and successfully sent passes to 1 contacts.
