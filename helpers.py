@@ -7,7 +7,7 @@ class Media():
         self.media_id = None
 
     def upload_media(self, PHONE_NUMBER_ID, ACCESS_TOKEN, file_path, type_="image/jpeg", messaging_product="whatsapp"):
-        url = f'https://graph.facebook.com/v17.0/{PHONE_NUMBER_ID}/media'
+        url = f'https://graph.facebook.com/v20.0/{PHONE_NUMBER_ID}/media'
 
         headers = {
             'Authorization': 'Bearer ' + ACCESS_TOKEN,
@@ -55,13 +55,47 @@ class Messaging():
     def _get_pass(self, PHONE_NUMBER):
         pass
 
+    def send_announcement(self, PHONE_NUMBER, template="announcement_transition", language_code="zh_HK"):
+        # API URL
+        url = f"https://graph.facebook.com/v20.0/{self.PHONE_NUMBER_ID}/messages"
+
+        # define headers
+        headers = {
+            "Authorization": "Bearer " + self.ACCESS_TOKEN,
+            "Content-Type": "application/json"
+        }
+
+        if not PHONE_NUMBER:
+            raise ValueError("Phone number is required for sending announcement")
+        if not template:
+            raise ValueError("Template name is required for sending announcement")
+        if not language_code:
+            raise ValueError("Language code is required for sending announcement")
+
+        # define the body of the message
+        body = {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual", 
+            "to": PHONE_NUMBER, 
+            "type": "template",
+            "template": {
+                "name": template,
+                "language": {"code": language_code}
+            }
+        }
+
+        # Send the POST request
+        response = requests.post(url, headers=headers, data=json.dumps(body))
+
+        return response
+
     def send_message(self, PHONE_NUMBER, FILEPATH, FILENAME, template=False):
 
         # Path to the file
         FILEPATH += FILENAME
 
         # Your API URL
-        url = f"https://graph.facebook.com/v17.0/{self.PHONE_NUMBER_ID}/messages"
+        url = f"https://graph.facebook.com/v20.0/{self.PHONE_NUMBER_ID}/messages"
 
         headers = {
             "Authorization": "Bearer " + self.ACCESS_TOKEN,
@@ -88,7 +122,7 @@ class Messaging():
                 "type": "template",
                 "template": {
                     "name": "ayaya_pass",
-                    "language": {"code": "en_US"},
+                    "language": {"code": "en"},
                     "components": [
                         {
                             "type": "header",
